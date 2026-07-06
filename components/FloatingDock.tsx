@@ -1,10 +1,22 @@
-import { FloatingDockClient } from "./FloatingDockClient";
 import { profile } from "@/lib/data";
+import { FloatingDockClient } from "./FloatingDockClient";
 
 // Static navigation items
 const navItems = [
-  { title: "Home", href: "#hero", icon: "IconHome", isExternal: false },
+  { title: "Home", href: "#home", icon: "IconHome", isExternal: false },
   { title: "About", href: "#about", icon: "IconUser", isExternal: false },
+  {
+    title: "Experience",
+    href: "#experience",
+    icon: "IconBriefcase",
+    isExternal: false,
+  },
+  {
+    title: "Projects",
+    href: "#projects",
+    icon: "IconCode",
+    isExternal: false,
+  },
   { title: "Skills", href: "#skills", icon: "IconBrain", isExternal: false },
   {
     title: "Education",
@@ -13,15 +25,15 @@ const navItems = [
     isExternal: false,
   },
   {
-    title: "Certifications",
-    href: "#certifications",
-    icon: "IconCertificate",
+    title: "Achievements",
+    href: "#achievements",
+    icon: "IconTrophy",
     isExternal: false,
   },
   {
-    title: "Testimonials",
-    href: "#testimonials",
-    icon: "IconQuote",
+    title: "Certifications",
+    href: "#certifications",
+    icon: "IconCertificate",
     isExternal: false,
   },
   { title: "Contact", href: "#contact", icon: "IconMail", isExternal: false },
@@ -41,6 +53,16 @@ const navItems = [
           title: "LinkedIn",
           href: profile.socialLinks.linkedin,
           icon: "IconBrandLinkedin",
+          isExternal: true,
+        },
+      ]
+    : []),
+  ...(profile.socialLinks.takeuforward
+    ? [
+        {
+          title: "TakeUForward",
+          href: profile.socialLinks.takeuforward,
+          icon: "IconCode",
           isExternal: true,
         },
       ]

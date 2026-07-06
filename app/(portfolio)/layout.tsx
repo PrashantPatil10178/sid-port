@@ -1,7 +1,4 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "../globals.css";
-import Script from "next/script";
 import { AppSidebar } from "@/components/app-sidebar";
 import { ModeToggle } from "@/components/DarkModeToggle";
 import { FloatingDock } from "@/components/FloatingDock";
@@ -9,60 +6,55 @@ import SidebarToggle from "@/components/SidebarToggle";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Siddhi Uttekar | Full-Stack Developer & Cloud Engineer",
+  title: "Siddhi Uttekar | Full-Stack Developer & GenAI Engineer",
   description:
-    "Passionate Full-Stack Developer with expertise in React, Next.js, Node.js, and Cloud Technologies. Building high-performance web applications with modern UI/UX.",
+    "Final-year IT undergraduate at AISSMS IOIT, Pune, specializing in full-stack development and Generative AI. Builder of RAG pipelines and AI-powered applications with React, Next.js, FastAPI, and LangChain. IEEE-published researcher.",
+  keywords: [
+    "Siddhi Uttekar",
+    "Full-Stack Developer",
+    "GenAI Engineer",
+    "RAG",
+    "LangChain",
+    "React",
+    "Next.js",
+    "Pune",
+  ],
+  openGraph: {
+    title: "Siddhi Uttekar | Full-Stack Developer & GenAI Engineer",
+    description:
+      "Full-stack developer specializing in Generative AI — RAG pipelines, AI assistants, and production web apps.",
+    type: "website",
+  },
 };
 
-export default async function RootLayout({
+export default async function PortfolioLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Script
-            src="https://cdn.platform.openai.com/deployments/chatkit/chatkit.js"
-            strategy="afterInteractive"
-          />
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
+      <SidebarProvider defaultOpen={false}>
+        <SidebarInset className="">{children}</SidebarInset>
 
-          <SidebarProvider defaultOpen={false}>
-            <SidebarInset className="">{children}</SidebarInset>
+        <AppSidebar side="right" />
 
-            <AppSidebar side="right" />
+        <FloatingDock />
+        <SidebarToggle />
 
-            <FloatingDock />
-            <SidebarToggle />
-
-            {/* Mode Toggle - Desktop: bottom right next to AI chat, Mobile: top right next to burger menu */}
-            <div className="fixed md:bottom-6 md:right-24 top-4 right-18 md:top-auto md:left-auto z-20">
-              <div className="w-10 h-10 md:w-12 md:h-12">
-                <ModeToggle />
-              </div>
-            </div>
-          </SidebarProvider>
-        </ThemeProvider>
-      </body>
-    </html>
+        {/* Mode Toggle - Desktop: bottom right next to AI chat, Mobile: top right next to burger menu */}
+        <div className="fixed md:bottom-6 md:right-24 top-4 right-18 md:top-auto md:left-auto z-20">
+          <div className="w-10 h-10 md:w-12 md:h-12">
+            <ModeToggle />
+          </div>
+        </div>
+      </SidebarProvider>
+    </ThemeProvider>
   );
 }

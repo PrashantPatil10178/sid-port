@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { BackgroundRippleEffect } from "@/components/ui/background-ripple-effect";
 import { LayoutTextFlip } from "@/components/ui/layout-text-flip";
@@ -16,9 +17,9 @@ export async function HeroSection() {
 
       <div className="relative z-10 container mx-auto max-w-6xl">
         <div className="@container">
-          <div className="grid grid-cols-1 gap-8 items-center">
+          <div className="grid grid-cols-1 @4xl:grid-cols-[1.1fr_0.9fr] gap-8 @4xl:gap-12 items-center">
             {/* Text Content */}
-            <div className="@container/hero space-y-4 @md/hero:space-y-6">
+            <div className="order-2 @4xl:order-1 @container/hero space-y-4 @md/hero:space-y-6">
               <h1 className="text-4xl @md/hero:text-5xl @lg/hero:text-7xl font-bold tracking-tight">
                 {profile.firstName}{" "}
                 <span className="text-primary">{profile.lastName}</span>
@@ -40,6 +41,22 @@ export async function HeroSection() {
               <p className="text-base @md/hero:text-lg text-muted-foreground leading-relaxed">
                 {profile.shortBio}
               </p>
+
+              <div className="flex flex-wrap gap-3 @md/hero:gap-4 pt-4">
+                <a
+                  href="/Siddhi_Uttekar_Resume.pdf"
+                  download="Siddhi_Uttekar_Resume.pdf"
+                  className="px-4 py-2 @md/hero:px-6 @md/hero:py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors text-sm @md/hero:text-base font-medium"
+                >
+                  Download Resume
+                </a>
+                <Link
+                  href="#contact"
+                  className="px-4 py-2 @md/hero:px-6 @md/hero:py-3 rounded-lg border hover:bg-accent transition-colors text-sm @md/hero:text-base"
+                >
+                  Get In Touch
+                </Link>
+              </div>
 
               {hasSocialLinks && (
                 <div className="flex flex-wrap gap-3 @md/hero:gap-4 pt-4">
@@ -83,6 +100,16 @@ export async function HeroSection() {
                       Website
                     </Link>
                   )}
+                  {profile.socialLinks.takeuforward && (
+                    <Link
+                      href={profile.socialLinks.takeuforward}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 @md/hero:px-6 @md/hero:py-3 rounded-lg border hover:bg-accent transition-colors text-sm @md/hero:text-base"
+                    >
+                      TakeUForward
+                    </Link>
+                  )}
                 </div>
               )}
 
@@ -105,6 +132,23 @@ export async function HeroSection() {
                     <span>{profile.availability}</span>
                   </div>
                 )}
+              </div>
+            </div>
+
+            {/* Portrait */}
+            <div className="order-1 @4xl:order-2 flex justify-center overflow-hidden">
+              <div className="group relative w-full max-w-60 @sm:max-w-70 @4xl:max-w-none rounded-2xl border-4 border-card bg-card p-2 ring-1 ring-border transition-transform duration-300 hover:scale-[1.02]">
+                <Image
+                  src="/new-hero.png"
+                  alt={`${profile.firstName} ${profile.lastName}`}
+                  width={560}
+                  height={840}
+                  className="w-full h-auto rounded-lg"
+                  priority
+                />
+                <div className="pointer-events-none absolute inset-2 overflow-hidden rounded-lg">
+                  <div className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
+                </div>
               </div>
             </div>
           </div>

@@ -1,19 +1,48 @@
+import { createAzure } from "@ai-sdk/azure";
 import { google } from "@ai-sdk/google";
-import { streamText, convertToCoreMessages } from "ai";
-import { profile, skills, education } from "@/lib/data";
+import { convertToCoreMessages, streamText } from "ai";
+import {
+  achievements,
+  certifications,
+  education,
+  experiences,
+  profile,
+  projects,
+  skills,
+} from "@/lib/data";
 
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
 
+function resolveModel() {
+  const azureApiKey = process.env.AZURE_OPENAI_API_KEY;
+  const azureEndpoint = process.env.AZURE_OPENAI_ENDPOINT;
+  const azureDeployment = process.env.AZURE_OPENAI_DEPLOYMENT_NAME;
+
+  if (azureApiKey && azureEndpoint && azureDeployment) {
+    const resourceName = new URL(azureEndpoint).hostname.split(".")[0];
+    const azure = createAzure({ apiKey: azureApiKey, resourceName });
+    return azure.chat(azureDeployment);
+  }
+
+  if (process.env.GOOGLE_GENERATIVE_AI_API_KEY) {
+    const modelName = process.env.GOOGLE_MODEL_NAME || "gemini-1.5-flash";
+    return google(modelName);
+  }
+
+  return null;
+}
+
 export async function POST(req: Request) {
-  // Check for required environment variables
-  if (!process.env.GOOGLE_GENERATIVE_AI_API_KEY) {
+  const model = resolveModel();
+
+  if (!model) {
     return new Response(
       JSON.stringify({
         error:
-          "Google Gemini not configured. Please set GOOGLE_GENERATIVE_AI_API_KEY in your .env.local file.",
+          "No AI provider configured. Set AZURE_OPENAI_API_KEY + AZURE_OPENAI_ENDPOINT + AZURE_OPENAI_DEPLOYMENT_NAME, or GOOGLE_GENERATIVE_AI_API_KEY, in your .env file.",
       }),
-      { status: 500, headers: { "Content-Type": "application/json" } }
+      { status: 500, headers: { "Content-Type": "application/json" } },
     );
   }
 
@@ -55,10 +84,44 @@ ${profile.stats.map((stat) => `- ${stat.label}: ${stat.value}`).join("\n")}
 
 Key Skills:
 ${skills
-  .slice(0, 10)
   .map(
-    (skill) => `- ${skill.name}: ${skill.proficiency} (${skill.percentage}%)`
+    (skill) =>
+      `- ${skill.name} (${skill.category}): ${skill.proficiency} (${skill.percentage}%)`,
   )
+  .join("\n")}
+
+Work Experience:
+${experiences
+  .map(
+    (exp) => `
+- ${exp.position} at ${exp.company} (${exp.startDate} to ${
+      exp.current ? "Present" : exp.endDate
+    })
+  ${exp.description}
+  Highlights: ${exp.achievements.join("; ")}
+  Technologies: ${exp.technologies.join(", ")}
+`,
+  )
+  .join("\n")}
+
+Projects:
+${projects
+  .map(
+    (proj) => `
+- ${proj.title}: ${proj.tagline}
+  Technologies: ${proj.technologies.join(", ")}
+`,
+  )
+  .join("\n")}
+
+Achievements:
+${achievements
+  .map((ach) => `- ${ach.title} (${ach.issuer}): ${ach.description}`)
+  .join("\n")}
+
+Certifications:
+${certifications
+  .map((cert) => `- ${cert.name} (${cert.issuer}): ${cert.description}`)
   .join("\n")}
 
 Education:
@@ -68,20 +131,27 @@ ${education
 - ${edu.degree} in ${edu.fieldOfStudy} from ${edu.institution}
   ${edu.gpa ? `GPA: ${edu.gpa}` : ""}
   ${edu.description}
-`
+  ${edu.achievements.join("; ")}
+`,
   )
   .join("\n")}
 
-You should answer questions about ${
-    profile.firstName
-  }'s skills, education, certifications, and availability. 
-Be conversational, professional, and helpful. If asked about something not in the portfolio, politely say you don't have that information but suggest checking the website or contacting directly.`;
+A downloadable resume is available at /Siddhi_Uttekar_Resume.pdf on this site.
 
-  // Use Gemini 1.5 Flash (fast and efficient) or gemini-1.5-pro for better quality
-  const modelName = process.env.GOOGLE_MODEL_NAME || "gemini-1.5-flash";
+You are ${
+    profile.firstName
+  }'s "AI twin" embedded in her portfolio — speak in first person as if you were her, drawing only on the facts above (skills, experience, projects, education, achievements, certifications, availability). Be conversational, confident, and helpful, matching the tone of someone early in their career but genuinely skilled in full-stack development and Generative AI.
+If asked about something not covered above, be honest that you don't have that detail and suggest checking the resume download or using the contact form instead of guessing or inventing specifics.
+
+Format every response as Markdown so it renders cleanly in the chat UI:
+- Use short paragraphs (1-3 sentences) instead of long blocks.
+- Use "**bold**" for key terms, technologies, and headline claims.
+- Use "-" bullet lists when listing skills, projects, or responsibilities — don't run them together in prose.
+- Use "##" or "###" headings only for longer, multi-section answers (e.g. a full breakdown of experience); skip headings for short answers.
+- Never output raw line breaks as a substitute for actual list/heading syntax.`;
 
   const result = await streamText({
-    model: google(modelName) as any,
+    model: model as any,
     system: context,
     messages: coreMessages,
   });

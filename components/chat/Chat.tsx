@@ -16,7 +16,7 @@ import {
 } from "@tabler/icons-react";
 import { useRef, useEffect, useState, useCallback, useMemo } from "react";
 import ReactMarkdown from "react-markdown";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 
 // Helper to extract text content from AI SDK 5 message parts
 function getMessageText(message: {

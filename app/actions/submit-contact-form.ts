@@ -1,5 +1,7 @@
 "use server";
 
+import { insertContactSubmission } from "@/lib/db";
+
 export async function submitContactForm(formData: FormData) {
   try {
     const name = formData.get("name") as string;
@@ -15,18 +17,7 @@ export async function submitContactForm(formData: FormData) {
       };
     }
 
-    // Simulate network delay to show loading state in UI
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    // In a real application, you would send an email or store in a database
-    // You can also use the API route we created at /api/contact
-    console.log("Contact form submission:", {
-      name,
-      email,
-      subject,
-      message,
-      submittedAt: new Date().toISOString(),
-    });
+    insertContactSubmission({ name, email, subject, message });
 
     return {
       success: true,
