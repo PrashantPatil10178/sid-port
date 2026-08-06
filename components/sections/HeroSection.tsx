@@ -44,8 +44,8 @@ export async function HeroSection() {
 
               <div className="flex flex-wrap gap-3 @md/hero:gap-4 pt-4">
                 <a
-                  href="/Siddhi_Uttekar_Resume.pdf"
-                  download="Siddhi_Uttekar_Resume.pdf"
+                  href="/Siddhi_Uttekar_Resume (2).pdf"
+                  download="Siddhi_Uttekar_Resume (2).pdf"
                   className="px-4 py-2 @md/hero:px-6 @md/hero:py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors text-sm @md/hero:text-base font-medium"
                 >
                   Download Resume
@@ -137,13 +137,13 @@ export async function HeroSection() {
 
             {/* Portrait */}
             <div className="order-1 @4xl:order-2 flex justify-center overflow-hidden">
-              <div className="group relative w-full max-w-60 @sm:max-w-70 @4xl:max-w-none rounded-2xl border-4 border-card bg-card p-2 ring-1 ring-border transition-transform duration-300 hover:scale-[1.02]">
+              <div className="group relative w-full max-w-[17rem] @sm:max-w-[19rem] @4xl:max-w-[22rem] rounded-2xl border-4 border-card bg-card p-2 ring-1 ring-border transition-transform duration-300 hover:scale-[1.02]">
                 <Image
-                  src="/new-hero.png"
+                  src="/sidhipic3.jpg"
                   alt={`${profile.firstName} ${profile.lastName}`}
                   width={560}
-                  height={840}
-                  className="w-full h-auto rounded-lg"
+                  height={720}
+                  className="h-[26rem] w-full rounded-lg object-cover object-center sm:h-[12rem] @4xl:h-[26rem]"
                   priority
                 />
                 <div className="pointer-events-none absolute inset-2 overflow-hidden rounded-lg">

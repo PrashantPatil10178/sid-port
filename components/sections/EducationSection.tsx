@@ -26,11 +26,11 @@ export async function EducationSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="flex justify-center">
           {education.map((edu) => (
             <div
               key={edu._id}
-              className="group relative bg-card border rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300"
+              className="group relative w-full max-w-3xl bg-card border rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300"
             >
               {/* Accent gradient bar */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-primary/60 to-primary/30 z-10" />

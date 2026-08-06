@@ -172,8 +172,8 @@ export const profile: Profile = {
   ],
   headlineAnimationDuration: 3000,
   shortBio:
-    "Final-year IT undergraduate specializing in full-stack development and Generative AI. I build RAG pipelines, AI-powered assistants, and production-ready web applications using React, Next.js, FastAPI, and LangChain.",
-  fullBio: `I'm Siddhi Uttekar, a final-year B.Tech Information Technology student at AISSMS Institute of Information Technology, Pune, graduating in 2026 with a CGPA of 8.76/10.
+    "B.Tech Information Technology graduate passionate about building full-stack and AI-powered applications. I develop RAG pipelines, intelligent assistants, and scalable web applications using React, FastAPI, PostgreSQL, LangChain, and modern cloud technologies.",
+  fullBio: `I'm Siddhi Uttekar, a graduate in B.Tech Information Technology from AISSMS Institute of Information Technology, Pune, with a CGPA of 8.76/10.
 
 💡 Focus Areas: I work across the full stack — React, Next.js, Node.js, and Express.js — while specializing in Generative AI: building RAG pipelines with LangChain, FAISS, and VoyageAI, and integrating LLMs like Llama 3.1 and GROQ into real products.
 
@@ -430,7 +430,7 @@ export const projects: Project[] = [
     slug: "ai-codebase-assistant",
     tagline:
       "RAG-powered assistant that lets developers query repositories in natural language, tracing logic flow across Python, JS, and Java codebases",
-    category: "ai-ml",
+    category: "ai",
     technologies: ["RAG", "FastAPI", "LangChain", "FAISS", "VoyageAI", "React"],
     liveUrl: "https://ai-codebase-assistant.netlify.app/",
     featured: true,
@@ -442,7 +442,7 @@ export const projects: Project[] = [
     slug: "eatwise",
     tagline:
       "AI-powered food safety analyzer that detects harmful or allergen ingredients from packaging images using OCR and GROQ-powered analysis",
-    category: "ai-ml",
+    category: "ai-fullstack",
     technologies: [
       "React",
       "Node.js",
@@ -461,11 +461,23 @@ export const projects: Project[] = [
     slug: "jeevanai",
     tagline:
       "AI-powered healthcare assistant that analyzes user-reported symptoms and generates objective diagnostic reports with specialist referrals",
-    category: "ai-ml",
+    category: "ai-fullstack",
     technologies: ["Next.js", "Groq API (Llama 3.1)", "Tailwind CSS", "jsPDF"],
     liveUrl: "https://jeevan-ai.netlify.app/",
     featured: true,
     order: 3,
+  },
+  {
+    _id: "proj-4",
+    title: "Fashion Retail Sales Analytics",
+    slug: "fashion-retail-sales-analytics",
+    tagline:
+      "Built a PostgreSQL-backed retail analytics workflow with 3 Power BI dashboards and Python validation to uncover revenue, retention, and regional sales insights from a 6.4M-row dataset.",
+    category: "data-analytics",
+    technologies: ["PostgreSQL", "Power BI", "Python", "Pandas", "scikit-learn"],
+    githubUrl: "https://github.com/Siddhi-Uttekar/fashion-sales-analysis",
+    featured: true,
+    order: 4,
   },
 ];
 
@@ -500,14 +512,14 @@ export const education: Education[] = [
   {
     _id: "edu-1",
     institution: "AISSMS Institute of Information Technology",
-    degree: "Bachelor of Technology",
-    fieldOfStudy: "Information Technology",
-    startDate: "2022-01-01",
+    degree: "B.Tech in Information Technology",
+    fieldOfStudy: "Graduate",
+    startDate: "2022-11-01",
     endDate: "2026-06-30",
-    current: true,
+    current: false,
     gpa: "8.76/10",
-    description:
-      "Pursuing B.Tech in Information Technology with a focus on full-stack web development and Generative AI.",
+    description:"Coursework : Data structures & Algorithms, DBMS, Web Development, Operating System, Computer Networks, Cloud Computing",
+
     achievements: [
       "3rd Rank in T.Y.B.Tech Information Technology for academic excellence in the IT department",
       'Co-authored and published "Mockhire: Adaptive Interview Training and Recruitment Automation Through Objective AI Assessment" in IEEE Xplore and Scopus-indexed proceedings',

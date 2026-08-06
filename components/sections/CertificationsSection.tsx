@@ -85,13 +85,6 @@ export async function CertificationsSection() {
                     <div className="absolute bottom-2 right-2 w-3 h-3 rotate-45 bg-yellow-600/70" />
 
                     <div className="relative z-10 flex flex-col items-center text-center flex-1">
-                      {/* Date at Top */}
-                      <div className="mb-4">
-                        <p className="text-xs text-zinc-400">
-                          {cert.issueDate && formatDate(cert.issueDate)}
-                        </p>
-                      </div>
-
                       {/* Certificate Title - Small and Gold at top */}
                       <div className="mb-5">
                         <h4 className="text-lg font-bold text-yellow-600/80 mb-1 uppercase tracking-wide">

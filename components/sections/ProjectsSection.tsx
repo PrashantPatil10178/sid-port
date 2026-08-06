@@ -19,11 +19,11 @@ export async function ProjectsSection() {
         </div>
 
         <div className="@container">
-          <div className="grid grid-cols-1 @2xl:grid-cols-2 @5xl:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {featuredProjects.map((project) => (
               <div
                 key={project.slug}
-                className="@container/card group bg-card border rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+                className="@container/card group flex h-full flex-col bg-card border rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300"
               >
                 {/* Project Image Placeholder */}
                 {project.image && (
@@ -37,8 +37,8 @@ export async function ProjectsSection() {
                 )}
 
                 {/* Project Content */}
-                <div className="p-4 @md/card:p-6 space-y-3 @md/card:space-y-4">
-                  <div>
+                <div className="flex flex-1 flex-col p-4 @md/card:p-6 space-y-3 @md/card:space-y-4">
+                  <div className="flex-1">
                     <div className="flex items-center gap-2 mb-2">
                       {project.category && (
                         <span className="text-xs px-2 py-0.5 @md/card:py-1 rounded-full bg-primary/10 text-primary">
@@ -49,7 +49,7 @@ export async function ProjectsSection() {
                     <h3 className="text-lg @md/card:text-xl font-semibold mb-2 line-clamp-2">
                       {project.title || "Untitled Project"}
                     </h3>
-                    <p className="text-muted-foreground text-xs @md/card:text-sm line-clamp-2">
+                    <p className="text-muted-foreground text-xs @md/card:text-sm leading-6">
                       {project.tagline}
                     </p>
                   </div>
@@ -57,7 +57,7 @@ export async function ProjectsSection() {
                   {/* Tech Stack */}
                   {project.technologies && project.technologies.length > 0 && (
                     <div className="flex flex-wrap gap-1.5 @md/card:gap-2">
-                      {project.technologies.slice(0, 4).map((tech, idx) => (
+                      {project.technologies.map((tech, idx) => (
                         <span
                           key={`${project.slug}-tech-${idx}`}
                           className="text-xs px-2 py-0.5 @md/card:py-1 rounded-md bg-muted"
@@ -65,11 +65,6 @@ export async function ProjectsSection() {
                           {tech}
                         </span>
                       ))}
-                      {project.technologies.length > 4 && (
-                        <span className="text-xs px-2 py-0.5 @md/card:py-1 rounded-md bg-muted">
-                          +{project.technologies.length - 4}
-                        </span>
-                      )}
                     </div>
                   )}
 
