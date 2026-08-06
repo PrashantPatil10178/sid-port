@@ -62,8 +62,8 @@
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/PrashantPatil10178/Portfolio.git
-cd Portfolio
+git clone https://github.com/PrashantPatil10178/sid-port.git
+cd sid-port
 ```
 
 2. **Install dependencies**
@@ -168,7 +168,7 @@ Edit `components/PortfolioContent.tsx` to add or remove sections as needed.
 
 ### Deploy to Vercel (Recommended)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/PrashantPatil10178/Portfolio)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/PrashantPatil10178/sid-port)
 
 1. Push your code to GitHub
 2. Import your repository in [Vercel](https://vercel.com)
