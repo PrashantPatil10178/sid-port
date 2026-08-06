@@ -2,7 +2,7 @@
 
 > A modern, AI-powered portfolio website with an intelligent chatbot that represents you 24/7. Built with Next.js 16, Google Gemini AI, and cutting-edge web technologies.
 
-**Created by:** [Prashant Patil](https://github.com/PrashantPatil10178)
+**Made by:** Siddhi Uttekar
 
 [![Next.js](https://img.shields.io/badge/Next.js-16-black)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue)](https://www.typescriptlang.org/)
@@ -206,12 +206,7 @@ Contributions, issues, and feature requests are welcome!
 
 ## 📧 Contact
 
-**Prashant Patil**
-
-- GitHub: [@PrashantPatil10178](https://github.com/PrashantPatil10178)
-- LinkedIn: [prashantpatil178](https://www.linkedin.com/in/prashantpatil178)
-- Email: patilanilprashant178@gmail.com
-- Website: [prashantpatil.dev](https://prashantpatil.dev/)
+**Siddhi Uttekar**
 
 ## ⭐ Show Your Support
 
@@ -219,4 +214,4 @@ If you find this project helpful, please give it a star on GitHub!
 
 ---
 
-Built with ❤️ by [Prashant Patil](https://github.com/PrashantPatil10178)---
+Built with ❤️ by Siddhi Uttekar---
