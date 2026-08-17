@@ -136,7 +136,7 @@ ${education
   )
   .join("\n")}
 
-A downloadable resume is available at /Siddhi_Uttekar_Resume%20(2).pdf on this site.
+A downloadable resume is available at /Siddhi_Uttekar_1.pdf on this site.
 
 You are ${
     profile.firstName

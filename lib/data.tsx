@@ -164,20 +164,20 @@ export const profile: Profile = {
   headline: "Full-Stack Developer & GenAI Engineer",
   headlineStaticText: "I build",
   headlineAnimatedWords: [
-    "AI-powered applications",
-    "RAG pipelines",
-    "full-stack web apps",
-    "healthcare AI assistants",
-    "OCR-driven tools",
+     "AI-powered applications",
+  "full-stack web apps",
+  "RAG & AI systems",
+  "intelligent automation",
+  "data-driven solutions",
   ],
   headlineAnimationDuration: 3000,
   shortBio:
-    "B.Tech Information Technology graduate passionate about building full-stack and AI-powered applications. I develop RAG pipelines, intelligent assistants, and scalable web applications using React, FastAPI, PostgreSQL, LangChain, and modern cloud technologies.",
+    "B.Tech Information Technology graduate who builds full-stack applications, AI systems, and intelligent automation. I work across RAG, LLM applications, data workflows, and modern web technologies to turn ideas into practical, scalable solutions.",
   fullBio: `I'm Siddhi Uttekar, a graduate in B.Tech Information Technology from AISSMS Institute of Information Technology, Pune, with a CGPA of 8.76/10.
 
 💡 Focus Areas: I work across the full stack — React, Next.js, Node.js, and Express.js — while specializing in Generative AI: building RAG pipelines with LangChain, FAISS, and VoyageAI, and integrating LLMs like Llama 3.1 and GROQ into real products.
 
-🚀 Experience: As a Frontend Development Intern at EasyLearning, I built a password-less Email-OTP authentication system and a LaTeX-enabled test attempt engine with MathJax rendering, actively used by real students and teachers.
+🚀 Experience: As a Frontend Development Intern at EasyLearning, I built a password-less Email-OTP authentication system and a LaTeX-enabled test attempt engine with MathJax rendering, actively used by 80k+ users.
 
 📄 Research: I co-authored "Mockhire: Adaptive Interview Training and Recruitment Automation Through Objective AI Assessment," published in IEEE Xplore and Scopus-indexed proceedings.
 
@@ -196,7 +196,7 @@ export const profile: Profile = {
   yearsOfExperience: 1,
   stats: [
     { label: "CGPA", value: "8.76/10" },
-    { label: "AI/Web Projects", value: "3+" },
+    { label: "AI/Web Projects", value: "5+" },
     { label: "Certifications", value: "4" },
     { label: "IEEE Publication", value: "1" },
   ],
@@ -347,6 +347,15 @@ export const skills: Skill[] = [
     color: "#8B5CF6",
   },
   {
+    _id: "skill-agentic-ai",
+    name: "Agentic AI",
+    category: "ai",
+    proficiency: "advanced",
+    percentage: 82,
+    yearsOfExperience: 1,
+    color: "#7C3AED",
+  },
+  {
     _id: "skill-langchain",
     name: "LangChain",
     category: "ai",
@@ -354,6 +363,42 @@ export const skills: Skill[] = [
     percentage: 82,
     yearsOfExperience: 1,
     color: "#1C3C3C",
+  },
+  {
+    _id: "skill-n8n",
+    name: "n8n",
+    category: "ai",
+    proficiency: "advanced",
+    percentage: 80,
+    yearsOfExperience: 1,
+    color: "#1C3C3C",
+  },
+  {
+    _id: "skill-groq",
+    name: "Groq API",
+    category: "ai",
+    proficiency: "advanced",
+    percentage: 82,
+    yearsOfExperience: 1,
+    color: "#F05A28",
+  },
+  {
+    _id: "skill-tavily",
+    name: "Tavily API",
+    category: "ai",
+    proficiency: "advanced",
+    percentage: 78,
+    yearsOfExperience: 1,
+    color: "#7C3AED",
+  },
+  {
+    _id: "skill-slack",
+    name: "Slack API",
+    category: "ai",
+    proficiency: "advanced",
+    percentage: 76,
+    yearsOfExperience: 1,
+    color: "#4A154B",
   },
   {
     _id: "skill-faiss",
@@ -438,6 +483,25 @@ export const projects: Project[] = [
   },
   {
     _id: "proj-2",
+    title: "AI Research Digest Agent",
+    slug: "ai-research-digest-agent",
+    tagline:
+      "Self-hosted AI research agent in n8n that decides when to trigger live web search via Tavily before synthesizing findings with Groq-powered LLM reasoning and delivering daily topic-based updates to Slack.",
+    category: "ai-agent",
+    technologies: [
+      "n8n",
+      "Groq API",
+      "Llama 3.3",
+      "Tavily API",
+      "Slack API",
+      "Agentic Workflows",
+    ],
+    githubUrl: "https://github.com/Siddhi-Uttekar/ai-research-agent-n8n",
+    featured: true,
+    order: 2,
+  },
+  {
+    _id: "proj-3",
     title: "EatWise",
     slug: "eatwise",
     tagline:
@@ -453,10 +517,10 @@ export const projects: Project[] = [
     ],
     liveUrl: "https://eat-wise-six.vercel.app",
     featured: true,
-    order: 2,
+    order: 3,
   },
   {
-    _id: "proj-3",
+    _id: "proj-4",
     title: "JeevanAI",
     slug: "jeevanai",
     tagline:
@@ -465,10 +529,10 @@ export const projects: Project[] = [
     technologies: ["Next.js", "Groq API (Llama 3.1)", "Tailwind CSS", "jsPDF"],
     liveUrl: "https://jeevan-ai.netlify.app/",
     featured: true,
-    order: 3,
+    order: 4,
   },
   {
-    _id: "proj-4",
+    _id: "proj-5",
     title: "Fashion Retail Sales Analytics",
     slug: "fashion-retail-sales-analytics",
     tagline:
@@ -477,7 +541,7 @@ export const projects: Project[] = [
     technologies: ["PostgreSQL", "Power BI", "Python", "Pandas", "scikit-learn"],
     githubUrl: "https://github.com/Siddhi-Uttekar/fashion-sales-analysis",
     featured: true,
-    order: 4,
+    order: 5,
   },
 ];
 
@@ -495,12 +559,12 @@ export const experiences: Experience[] = [
     description:
       "Built authentication and assessment features for a live e-learning platform used by real students and teachers.",
     responsibilities: [
-      "Engineer password-less Email-OTP authentication using TanStack Router guards, Axios interceptors, and secure JWT cookies",
-      "Build a LaTeX-enabled test attempt engine with MathJax rendering and real-time answer tracking",
+      "Engineered a password-less Email-OTP authentication system using TanStack Router guards, Axios interceptors, and secure JWT cookies, serving 80K+ users and eliminating passwords for secure instant access.",
+      "Built a LaTeX-enabled test attempt engine with MathJax rendering and real-time answer tracking, actively used across 5 courses for grades 8-10 and 11-12 PCMB, serving real students and teachers in a live learning environment.",
     ],
     achievements: [
-      "Eliminated passwords entirely, enabling secure instant access via Email-OTP",
-      "Shipped a test attempt engine actively used by real students and teachers in a live learning environment",
+      "Served 80K+ users with secure instant access through password-less Email-OTP authentication.",
+      "Enabled seamless assessment experiences across 5 courses for grades 8-10 and 11-12 PCMB in a live-learning environment.",
     ],
     technologies: ["TanStack Router", "Axios", "JWT", "MathJax", "React"],
     order: 1,

@@ -20,6 +20,8 @@ const skillGroups = [
     accent: "from-violet-500/20 to-fuchsia-500/10",
     skills: [
       { name: "RAG", icon: "🧠", evidence: "Powering repository-aware AI assistance" },
+      { name: "Agentic AI", icon: "🤖", evidence: "Building autonomous tool-using AI workflows" },
+      { name: "n8n", icon: "⚙️", evidence: "Orchestrating automated AI research and delivery pipelines" },
       { name: "LangChain", icon: "⛓", evidence: "Used to orchestrate LLM workflows" },
       { name: "FAISS", icon: "🔎", evidence: "Enabled efficient semantic retrieval" },
       { name: "Prompt Engineering", icon: "💬", evidence: "Improved response quality and reliability" },

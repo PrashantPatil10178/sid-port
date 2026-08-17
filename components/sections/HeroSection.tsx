@@ -44,8 +44,8 @@ export async function HeroSection() {
 
               <div className="flex flex-wrap gap-3 @md/hero:gap-4 pt-4">
                 <a
-                  href="/Siddhi_Uttekar_Resume (2).pdf"
-                  download="Siddhi_Uttekar_Resume (2).pdf"
+                  href="/Siddhi_Uttekar_1.pdf"
+                  download="Siddhi_Uttekar_1.pdf"
                   className="px-4 py-2 @md/hero:px-6 @md/hero:py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors text-sm @md/hero:text-base font-medium"
                 >
                   Download Resume
